@@ -267,7 +267,9 @@ button:active {
     <h1 class="lang lang-de"><span class="accent">Revolutionäre</span> <span class="bright">Betrugserkennung</span> <span class="accent">mit KI</span></h1>
     <p class="lang lang-en">Together with leading research institutes, TriSure is exploring a new generation of AI-powered fraud detection.</p>
     <p class="lang lang-de">Gemeinsam mit führenden Forschungsinstituten erforscht TriSure eine neue Generation KI gestützter Betrugserkennung.</p>
-    <form id="newsletter" novalidate>
+    <form id="newsletter" action="https://formsubmit.co/julian@a68.io" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="TriSure Newsletter Signup">
+      <input type="hidden" name="_captcha" value="false">
       <label class="sr-only" for="email">Email</label>
       <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
       <button type="submit">Join newsletter</button>
@@ -707,7 +709,7 @@ button:active {
       submit: 'Informationen erhalten',
       invalid: 'Bitte geben Sie eine gueltige E-Mail-Adresse ein.',
       sending: 'Sende...',
-      success: 'Danke. Bitte pruefen Sie Ihr Postfach.',
+      success: 'Vielen Dank. Wir werden uns in Kürze bei Ihnen melden.',
       error: 'Etwas ist schiefgelaufen. Bitte erneut versuchen.'
     }
   };
@@ -766,10 +768,10 @@ button:active {
     status.textContent = messages.sending;
     status.style.color = 'rgba(232, 242, 255, 0.7)';
     try {
-      const res = await fetch('/api/subscribe', {
+      const res = await fetch('https://formsubmit.co/ajax/julian@a68.io', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: value })
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
       });
       const payload = await res.json().catch(() => ({}));
       if (!res.ok) {

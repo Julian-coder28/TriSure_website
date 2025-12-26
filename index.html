@@ -126,6 +126,13 @@ main {
 .hero {
   max-width: 1100px;
 }
+.hero-logo {
+  display: none;
+  width: min(52vw, 220px);
+  height: auto;
+  margin: 0 auto 1.6rem;
+  filter: drop-shadow(0 10px 28px rgba(6, 20, 39, 0.45));
+}
 .lang {
   display: none;
 }
@@ -299,6 +306,9 @@ body.is-mobile main {
 body.is-mobile .hero {
   max-width: 92vw;
 }
+body.is-mobile .hero-logo {
+  display: block;
+}
 body.is-mobile input[type="email"] {
   width: min(88vw, 420px);
 }
@@ -340,6 +350,7 @@ body.is-mobile #noise {
 </div>
 <main>
   <div class="hero">
+    <img class="hero-logo" src="TriSure_Logo_weiá (2).png" alt="TriSure Logo" loading="eager">
     <h1 class="lang lang-en" lang="en"><span class="accent">Revolutionizing</span> insurance <span class="bright">fraud</span> <span class="accent">detection</span></h1>
     <h1 class="lang lang-de" lang="de"><span class="accent">Revolutionäre</span> <span class="bright">Betrugserkennung</span> <span class="accent">mit KI</span></h1>
     <p class="lang lang-en" lang="en">Together with leading research institutes, TriSure is exploring a new generation of AI-powered fraud detection.</p>
@@ -813,7 +824,7 @@ body.is-mobile #noise {
       error: 'Etwas ist schiefgelaufen. Bitte erneut versuchen.'
     }
   };
-  let messages = translations.en;
+  let messages = translations.de;
 
   const setLanguage = (lang) => {
     if (!translations[lang]) return;
@@ -831,23 +842,9 @@ body.is-mobile #noise {
       link.classList.toggle('is-active', active);
       link.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
-    try {
-      localStorage.setItem('lang', lang);
-    } catch {
-    }
   };
 
-  const resolveInitialLang = () => {
-    try {
-      const saved = localStorage.getItem('lang');
-      if (saved && translations[saved]) return saved;
-    } catch {
-      return 'de';
-    }
-    return 'de';
-  };
-
-  setLanguage(resolveInitialLang());
+  setLanguage('de');
   languageLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();

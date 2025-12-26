@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TriSure | AI-Powered Insurance Fraud Detection</title>
-<meta name="description" content="TriSure is building AI-powered insurance fraud detection with leading research institutes.">
+<title>TriSure | KI-gestuetzte Betrugserkennung</title>
+<meta name="description" content="TriSure entwickelt KI-gestuetzte Betrugserkennung gemeinsam mit fuehrenden Forschungsinstituten.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="TriSure">
 <meta name="theme-color" content="#061427">
 <meta name="referrer" content="origin">
 <link rel="canonical" href="https://trisure.de/">
-<meta property="og:title" content="TriSure | AI-Powered Insurance Fraud Detection">
-<meta property="og:description" content="TriSure is building AI-powered insurance fraud detection with leading research institutes.">
+<meta property="og:title" content="TriSure | KI-gestuetzte Betrugserkennung">
+<meta property="og:description" content="TriSure entwickelt KI-gestuetzte Betrugserkennung gemeinsam mit fuehrenden Forschungsinstituten.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://trisure.de/">
 <meta property="og:site_name" content="TriSure">
@@ -21,21 +21,24 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="TriSure logo on a dark background">
+<meta property="og:image:alt" content="TriSure-Logo auf dunklem Hintergrund">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TriSure | AI-Powered Insurance Fraud Detection">
-<meta name="twitter:description" content="TriSure is building AI-powered insurance fraud detection with leading research institutes.">
+<meta name="twitter:title" content="TriSure | KI-gestuetzte Betrugserkennung">
+<meta name="twitter:description" content="TriSure entwickelt KI-gestuetzte Betrugserkennung gemeinsam mit fuehrenden Forschungsinstituten.">
 <meta name="twitter:image" content="https://trisure.de/og-image.png">
-<link rel="icon" type="image/png" href="favicon-white.png">
+<link rel="icon" type="image/png" sizes="48x48" href="trisure-icon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="trisure-icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="trisure-icon-512.png">
+<link rel="apple-touch-icon" sizes="192x192" href="trisure-icon-192.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "TriSure",
   "url": "https://trisure.de/",
-  "logo": "https://trisure.de/favicon-white.png",
+  "logo": "https://trisure.de/trisure-icon-512.png",
   "image": "https://trisure.de/og-image.png",
-  "description": "TriSure is building AI-powered insurance fraud detection with leading research institutes.",
+  "description": "TriSure entwickelt KI-gestuetzte Betrugserkennung gemeinsam mit fuehrenden Forschungsinstituten.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Friedhofstrasse 18",
@@ -583,14 +586,18 @@ body.is-mobile #noise {
       return;
     }
     const ratio = logo.ratio || 1;
+    const isNarrow = state.w < 700;
     const base = clamp(state.w * 0.22, 120, 300);
     const scale = 1;
     const width = base * scale;
     const height = width / ratio;
     const driftX = 0;
     const driftY = 0;
-    const px = state.w * 0.5 + parallax.x * state.w * 0.22 + driftX;
-    const py = state.h * 0.26 + parallax.y * state.h * 0.22 + driftY;
+    const parallaxScale = isNarrow ? 0.08 : 0.22;
+    const baseY = isNarrow ? 0.2 : 0.26;
+    const px = state.w * 0.5 + parallax.x * state.w * parallaxScale + driftX;
+    const unclampedPy = state.h * baseY + parallax.y * state.h * (parallaxScale * 0.8) + driftY;
+    const py = isNarrow ? clamp(unclampedPy, state.h * 0.12, state.h * 0.3) : unclampedPy;
     const alpha = 0.32;
     state.logo = { x: px, y: py, r: Math.max(width, height) * 0.45 };
 

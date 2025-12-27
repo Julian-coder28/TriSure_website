@@ -2,11 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://trisure.de/</loc>
+    <lastmod>2025-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://trisure.de/impressum.html</loc>
+    <lastmod>2025-12-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

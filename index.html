@@ -3,15 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TriSure | KI-gestuetzte Betrugserkennung</title>
-<meta name="description" content="TriSure entwickelt KI-gestuetzte Betrugserkennung gemeinsam mit fuehrenden Forschungsinstituten.">
+<title>TriSure - Revolution&auml;re Betrugserkennung mit KI</title>
+<meta name="description" content="TriSure entwickelt KI-gest&uuml;tzte Betrugserkennung gemeinsam mit f&uuml;hrenden Forschungsinstituten.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="TriSure">
 <meta name="theme-color" content="#061427">
 <meta name="referrer" content="origin">
 <link rel="canonical" href="https://trisure.de/">
-<meta property="og:title" content="TriSure | KI-gestuetzte Betrugserkennung">
-<meta property="og:description" content="TriSure entwickelt KI-gestuetzte Betrugserkennung gemeinsam mit fuehrenden Forschungsinstituten.">
+<link rel="alternate" hreflang="de" href="https://trisure.de/">
+<link rel="alternate" hreflang="en" href="https://trisure.de/en/">
+<link rel="alternate" hreflang="x-default" href="https://trisure.de/">
+<meta property="og:title" content="TriSure - Revolution&auml;re Betrugserkennung mit KI">
+<meta property="og:description" content="TriSure entwickelt KI-gest&uuml;tzte Betrugserkennung gemeinsam mit f&uuml;hrenden Forschungsinstituten.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://trisure.de/">
 <meta property="og:site_name" content="TriSure">
@@ -23,13 +26,14 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="TriSure-Logo auf dunklem Hintergrund">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TriSure | KI-gestuetzte Betrugserkennung">
-<meta name="twitter:description" content="TriSure entwickelt KI-gestuetzte Betrugserkennung gemeinsam mit fuehrenden Forschungsinstituten.">
+<meta name="twitter:title" content="TriSure - Revolution&auml;re Betrugserkennung mit KI">
+<meta name="twitter:description" content="TriSure entwickelt KI-gest&uuml;tzte Betrugserkennung gemeinsam mit f&uuml;hrenden Forschungsinstituten.">
 <meta name="twitter:image" content="https://trisure.de/og-image.png">
-<link rel="icon" type="image/png" sizes="48x48" href="trisure-icon-48.png">
-<link rel="icon" type="image/png" sizes="192x192" href="trisure-icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="trisure-icon-512.png">
-<link rel="apple-touch-icon" sizes="192x192" href="trisure-icon-192.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,7 +42,7 @@
   "url": "https://trisure.de/",
   "logo": "https://trisure.de/trisure-icon-512.png",
   "image": "https://trisure.de/og-image.png",
-  "description": "TriSure entwickelt KI-gestuetzte Betrugserkennung gemeinsam mit fuehrenden Forschungsinstituten.",
+  "description": "TriSure entwickelt KI-gest\u00fctzte Betrugserkennung gemeinsam mit f\u00fchrenden Forschungsinstituten.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Friedhofstrasse 18",
@@ -335,15 +339,15 @@ body.is-mobile #noise {
 <div id="overlay"></div>
 <div id="noise"></div>
 <div class="lang-switch" role="group" aria-label="Language switch">
-  <a class="lang-link" href="#" role="button" data-lang="en" lang="en" aria-pressed="false">EN</a>
-  <a class="lang-link is-active" href="#" role="button" data-lang="de" lang="de" aria-pressed="true">DE</a>
+  <a class="lang-link" href="/en/" role="button" data-lang="en" lang="en" aria-pressed="false">EN</a>
+  <a class="lang-link is-active" href="/" role="button" data-lang="de" lang="de" aria-pressed="true">DE</a>
 </div>
 <main>
   <div class="hero">
     <h1 class="lang lang-en" lang="en"><span class="accent">Revolutionizing</span> insurance <span class="bright">fraud</span> <span class="accent">detection</span></h1>
-    <h1 class="lang lang-de" lang="de"><span class="accent">Revolutionäre</span> <span class="bright">Betrugserkennung</span> <span class="accent">mit KI</span></h1>
+    <h1 class="lang lang-de" lang="de"><span class="accent">Revolution&auml;re</span> <span class="bright">Betrugserkennung</span> <span class="accent">mit KI</span></h1>
     <p class="lang lang-en" lang="en">Together with leading research institutes, TriSure is exploring a new generation of AI-powered fraud detection.</p>
-    <p class="lang lang-de" lang="de">Gemeinsam mit führenden Forschungsinstituten erforscht TriSure eine neue Generation KI gestützter Betrugserkennung.</p>
+    <p class="lang lang-de" lang="de">Gemeinsam mit f&uuml;hrenden Forschungsinstituten erforscht TriSure eine neue Generation KI-gest&uuml;tzter Betrugserkennung.</p>
     <form id="newsletter" action="https://formsubmit.co/julian@a68.io" method="POST" novalidate>
       <input type="hidden" name="_subject" value="TriSure Newsletter Signup">
       <input type="hidden" name="_captcha" value="false">
@@ -836,6 +840,10 @@ body.is-mobile #noise {
   setLanguage('de');
   languageLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
+      const href = link.getAttribute('href');
+      if (href && href !== '#') {
+        return;
+      }
       event.preventDefault();
       setLanguage(link.dataset.lang);
     });

@@ -10,9 +10,6 @@
 <meta name="theme-color" content="#061427">
 <meta name="referrer" content="origin">
 <link rel="canonical" href="https://trisure.de/">
-<link rel="alternate" hreflang="de" href="https://trisure.de/">
-<link rel="alternate" hreflang="en" href="https://trisure.de/en/">
-<link rel="alternate" hreflang="x-default" href="https://trisure.de/">
 <meta property="og:title" content="TriSure - Revolution&auml;re Betrugserkennung mit KI">
 <meta property="og:description" content="TriSure entwickelt KI-gest&uuml;tzte Betrugserkennung gemeinsam mit f&uuml;hrenden Forschungsinstituten.">
 <meta property="og:type" content="website">
@@ -339,8 +336,8 @@ body.is-mobile #noise {
 <div id="overlay"></div>
 <div id="noise"></div>
 <div class="lang-switch" role="group" aria-label="Language switch">
-  <a class="lang-link" href="/en/" role="button" data-lang="en" lang="en" aria-pressed="false">EN</a>
-  <a class="lang-link is-active" href="/" role="button" data-lang="de" lang="de" aria-pressed="true">DE</a>
+  <a class="lang-link" href="#" role="button" data-lang="en" lang="en" aria-pressed="false">EN</a>
+  <a class="lang-link is-active" href="#" role="button" data-lang="de" lang="de" aria-pressed="true">DE</a>
 </div>
 <main>
   <div class="hero">
@@ -797,8 +794,16 @@ body.is-mobile #noise {
   const languageLinks = document.querySelectorAll('.lang-link[data-lang]');
   const emailLabel = document.querySelector('label[for="email"]');
   const submitButton = form.querySelector('button[type="submit"]');
+  const metaDescription = document.querySelector('meta[name="description"]');
+  const metaOgTitle = document.querySelector('meta[property="og:title"]');
+  const metaOgDescription = document.querySelector('meta[property="og:description"]');
+  const metaOgLocale = document.querySelector('meta[property="og:locale"]');
+  const metaTwitterTitle = document.querySelector('meta[name="twitter:title"]');
+  const metaTwitterDescription = document.querySelector('meta[name="twitter:description"]');
   const translations = {
     en: {
+      title: 'TriSure - Fraud Detection Reinvented',
+      description: 'Together with leading research institutes, TriSure is exploring a new generation of AI-powered fraud detection.',
       label: 'Email',
       placeholder: 'you@company.com',
       submit: 'Join newsletter',
@@ -808,6 +813,8 @@ body.is-mobile #noise {
       error: 'Something went wrong. Please try again.'
     },
     de: {
+      title: 'TriSure - Revolution\u00e4re Betrugserkennung mit KI',
+      description: 'TriSure entwickelt KI-gest\u00fctzte Betrugserkennung gemeinsam mit f\u00fchrenden Forschungsinstituten.',
       label: 'E-Mail',
       placeholder: 'sie@unternehmen.de',
       submit: 'Informationen erhalten',
@@ -828,6 +835,13 @@ body.is-mobile #noise {
     emailLabel.textContent = t.label;
     emailInput.placeholder = t.placeholder;
     submitButton.textContent = t.submit;
+    document.title = t.title || document.title;
+    if (t.description && metaDescription) metaDescription.setAttribute('content', t.description);
+    if (t.title && metaOgTitle) metaOgTitle.setAttribute('content', t.title);
+    if (t.description && metaOgDescription) metaOgDescription.setAttribute('content', t.description);
+    if (t.title && metaTwitterTitle) metaTwitterTitle.setAttribute('content', t.title);
+    if (t.description && metaTwitterDescription) metaTwitterDescription.setAttribute('content', t.description);
+    if (metaOgLocale) metaOgLocale.setAttribute('content', lang === 'de' ? 'de_DE' : 'en_US');
     messages = t;
     status.textContent = '';
     languageLinks.forEach((link) => {
